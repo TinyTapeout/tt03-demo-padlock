@@ -1,14 +1,7 @@
 --- 
 # TinyTapeout project information
 project:
-  wokwi_id:    0        # If using wokwi, set this to your project's ID
-
-# If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
-# Source files must be in ./src and you must list each source file separately
-#  source_files:        
-#    - counter.v
-#    - decoder.v
-#  top_module:  "seven_segment_seconds"      # put the name of your top module here, make it unique by prepending your github username
+  wokwi_id:    347417602591556180        # If using wokwi, set this to your project's ID
 
 # Keep a track of the submission yaml
 yaml_version: 3.0
@@ -18,29 +11,33 @@ yaml_version: 3.0
 #
 # Here is a great example: https://github.com/davidsiaw/tt02-davidsiaw-stackcalc/blob/38c5647f83aad2aec675d566aa3d67b98f0aac81/info.yaml
 documentation: 
-  author:       ""      # Your name
-  title:        ""      # Project title
+  author:       "Tiny Tapeout 03 (J. Rosenthal)"      # Your name
+  title:        "Customizable Padlock"      # Project title
   language:     "Wokwi" # other examples include Verilog, Amaranth, VHDL, etc
-  description:  ""      # Short description of what your project does
+  description:  "This design implements a customizable padlock. Set a code for your digital safe!"      # Short description of what your project does
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      Explain how your project works
+      Switch 2 is used to reset the safe. Switch 8 is used to set your code (on = set, off = locked). 
+      Switches 3 to 5 are used to set the code. The push button is used to enter your code.
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
-      Explain how to test your project
+      Set your desired code using Switches 3 to 5. Once you’ve done so, toggle Switch 8 to on then back off–the safe is now set!
+      Turn on Switch 2, and press the push button. The seven segment display should show “L” (for locked).
+      Next turn off Switch 2 to begin entering codes. If you enter a correct code, thw seven segment display should show “U” (for unlocked).
+
 
 # A description of what the inputs do
   inputs:               
-    - clock
-    - reset
-    - none
-    - none
-    - none
-    - none
-    - none
-    - none
+    - N/A
+    - Reset
+    - Code 0
+    - Code 1
+    - Code 2
+    - N/A
+    - N/A
+    - Set Code
 # A description of what the outputs do
   outputs:
     - segment a
@@ -50,12 +47,12 @@ documentation:
     - segment e
     - segment f
     - segment g
-    - dot
+    - none
 
 # The following fields are optional
   tag:          ""      # comma separated list of tags: test encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
   external_hw:  ""      # Describe any external hardware needed
-  discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
+  discord:      "jamesr#0350"      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
   doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
   clock_hz:     0       # Clock frequency in Hz (if required)
   picture:      ""      # relative path to a picture in your repository
